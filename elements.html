@@ -107,7 +107,7 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<section>
-							<form method="post" action="#">
+							<form onsubmit="sendEmail(event)">
 								<div class="fields">
 									<div class="field">
 										<label for="name">Name</label>
@@ -126,7 +126,22 @@
 									<li><input type="submit" value="Send Message" /></li>
 								</ul>
 							</form>
+							<p id="confirmation-message"></p>
 						</section>
+						
+						<script>
+							function sendEmail(event) {
+								event.preventDefault();
+								const message = document.getElementById("message").value;
+								const mailtoLink = "mailto:bkiiza92@gmail.com?body=" + encodeURIComponent(message);
+								window.location.href = mailtoLink;
+								document.getElementById("confirmation-message").textContent = "Email sent.";
+								document.getElementById("name").value = "";
+								document.getElementById("email").value = "";
+								document.getElementById("message").value = "";
+							}
+						</script>
+
 						<section class="split contact">
 							<section class="alt">
 								<h3>Address</h3>

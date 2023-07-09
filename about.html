@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Generic Page - Massively by HTML5 UP</title>
+		<title>About Me</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -27,7 +27,7 @@
 						<ul class="links">
 							<li><a href="index.html">HOME</a></li>
 							<li class="active"><a href="about.html">ABOUT ME</a></li>
-							<li><a href="elements.html">PROJECT ONE</a></li>
+							<li><a href="elements.html">PROJECTs</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -69,6 +69,8 @@
 								</p>
 								<h3> Certifications:</h3>
 								<p> I have continuously pursued professional development and have acquired certifications to strengthen my skills and knowledge in the field of data analytics. Some of my certifications include:<br />
+									<b>• Data Science Course @Careernow.us:</b> 
+									I am currently enrolled and actively taking the data science course at Careernow.us, I am excited to enhance my analytical skills and expand my knowledge in this field. This comprehensive program equips me with essential tools and techniques to excel in data science. With a focus on data analysis, machine learning, and data visualization, this course is helping me break into the data science profession and thrive in this rapidly growing and competitive field.<br />
 									<b>• KPMG Virtual Internship:</b> Completed a practical virtual internship that provided hands-on experience in data quality assessment, data insights, and data presentation.<br />
 									<b>• <a href="https://coursera.org/share/233e256e8285d038b054f6d2ceec409d">  Exploring Stock Prices with Spark SQL:</a></b> Completed a project-based certification course focusing on distributed programming with Spark and deriving insights from stock price datasets using Apache Spark SQL and DataFrame API.<br />
 									<b>• <a href="https://www.coursera.org/account/accomplishments/certificate/3FXQ67QCP9G2">   Google Business Intelligence Professional Certificate:</a></b> Earned a certificate demonstrating proficiency in Google's suite of BI tools, including data analysis, visualization, and reporting using Google Data Studio and Analytics. <br />
@@ -85,7 +87,7 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<section>
-							<form method="post" action="#">
+							<form onsubmit="sendEmail(event)">
 								<div class="fields">
 									<div class="field">
 										<label for="name">Name</label>
@@ -104,7 +106,22 @@
 									<li><input type="submit" value="Send Message" /></li>
 								</ul>
 							</form>
+							<p id="confirmation-message"></p>
 						</section>
+						
+						<script>
+							function sendEmail(event) {
+								event.preventDefault();
+								const message = document.getElementById("message").value;
+								const mailtoLink = "mailto:bkiiza92@gmail.com?body=" + encodeURIComponent(message);
+								window.location.href = mailtoLink;
+								document.getElementById("confirmation-message").textContent = "Email sent.";
+								document.getElementById("name").value = "";
+								document.getElementById("email").value = "";
+								document.getElementById("message").value = "";
+							}
+						</script>
+
 						<section class="split contact">
 							<section class="alt">
 								<h3>Address</h3>

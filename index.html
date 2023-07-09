@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Massively by HTML5 UP</title>
+		<title>Data Analyst Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -73,7 +73,7 @@
 									<span class="date">June 11, 2023</span>
 									<h2><a href="#">Welcome to my Data Analytics  <br />
 										Portfolio!</a></h2>
-										<p>I am <a href="https:www.linkedin.com/in/brian-kiiza-a977b2109">@Brian Kiiza</a> , a results-driven data analyst with expertise in statistical analysis, business intelligence, <br />
+										<p>I am a results-driven data analyst with expertise in statistical analysis, business intelligence, <br />
 											and advanced data analysis techniques. With a strong background in economics and statistics, I am passionate <br />
 											about leveraging data to drive actionable insights and inform strategic decision-making.</p>
 
@@ -211,8 +211,10 @@
 
 				<!-- Footer -->
 					<footer id="footer">
+						
+						
 						<section>
-							<form method="post" action="#">
+							<form onsubmit="sendEmail(event)">
 								<div class="fields">
 									<div class="field">
 										<label for="name">Name</label>
@@ -231,7 +233,23 @@
 									<li><input type="submit" value="Send Message" /></li>
 								</ul>
 							</form>
+							<p id="confirmation-message"></p>
 						</section>
+						
+						<script>
+							function sendEmail(event) {
+								event.preventDefault();
+								const message = document.getElementById("message").value;
+								const mailtoLink = "mailto:bkiiza92@gmail.com?body=" + encodeURIComponent(message);
+								window.location.href = mailtoLink;
+								document.getElementById("confirmation-message").textContent = "Email sent.";
+								document.getElementById("name").value = "";
+								document.getElementById("email").value = "";
+								document.getElementById("message").value = "";
+							}
+						</script>
+						
+
 						<section class="split contact">
 							<section class="alt">
 								<h3>Address</h3>
